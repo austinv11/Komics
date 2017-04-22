@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id="Komics:test" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="edu.rochester.avarela.komics" external.system.module.type="sourceSet" external.system.module.version="1.0" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="kotlin-language" name="Kotlin">
+      <configuration version="2" platform="JVM 1.6" useProjectSettings="false">
+        <compilerSettings />
+        <compilerArguments>
+          <option name="noStdlib" value="true" />
+          <option name="noReflect" value="true" />
+          <option name="moduleName" value="Komics_main" />
+          <option name="jvmTarget" value="1.6" />
+          <option name="addCompilerBuiltIns" value="true" />
+          <option name="loadBuiltInsFromDependencies" value="true" />
+          <option name="languageVersion" value="1.1" />
+          <option name="apiVersion" value="1.1" />
+          <option name="pluginClasspaths">
+            <array />
+          </option>
+          <option name="coroutinesWarn" value="true" />
+          <option name="pluginOptions">
+            <array />
+          </option>
+        </compilerArguments>
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+    <output-test url="file://$MODULE_DIR$/../../build/classes/test" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../src/test">
+      <sourceFolder url="file://$MODULE_DIR$/../../src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../src/test/kotlin" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../src/test/resources" type="java-test-resource" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="Komics_main" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.1.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-reflect:1.1.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.almasb:fxgl:0.3.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.reflections:reflections:0.9.11" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains:annotations:13.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core:0.14" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.almasb:fxgl-io:0.3.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.almasb:fxgl-net:0.3.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.almasb:fxgl-ecs:0.3.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.almasb:fxgl-physics:0.3.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.almasb:fxgl-ai:0.3.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.almasb:fxgl-core:0.3.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.inject:guice:4.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.jfxtras:jfxtras-window:8.0-r4" level="project" />
+    <orderEntry type="library" name="Gradle: org.controlsfx:controlsfx:8.40.12" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.8.5" level="project" />
+    <orderEntry type="library" name="Gradle: io.github.lukehutch:fast-classpath-scanner:2.0.10" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.logging.log4j:log4j-api:2.8.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.logging.log4j:log4j-core:2.8.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.guava:guava:20.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.javassist:javassist:3.21.0-GA" level="project" />
+    <orderEntry type="library" name="Gradle: javax.inject:javax.inject:1" level="project" />
+    <orderEntry type="library" name="Gradle: aopalliance:aopalliance:1.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.jfxtras:jfxtras-common:8.0-r4" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.8.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.8.5" level="project" />
+  </component>
+  <component name="TestModuleProperties" production-module="Komics_main" />
+</module>
