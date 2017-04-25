@@ -1,5 +1,6 @@
 package edu.rochester.avarela.komics.graphics.impl
 
+import edu.rochester.avarela.komics.IS_DEBUG_MODE
 import edu.rochester.avarela.komics.centerText
 import edu.rochester.avarela.komics.graphics.Actor
 import edu.rochester.avarela.komics.graphics.Scene
@@ -35,7 +36,7 @@ class LoadStage(scene: Scene) : Stage(scene, 0.toDouble() to 0.toDouble()) {
         var progress: Float = 0F
 
         override fun onUpdate(dT: Long) {
-            if (progress < 1.25F)
+            if (progress < 1.25F && !IS_DEBUG_MODE)
                 progress += .01F
             else
                 window.scene = MenuScene(window)
