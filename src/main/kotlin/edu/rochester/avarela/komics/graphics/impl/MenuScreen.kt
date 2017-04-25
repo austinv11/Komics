@@ -14,6 +14,8 @@ import javax.swing.GroupLayout
 
 class MenuScene(window: Window) : Scene(window) {
 
+    val profile: Profile
+
     init {
         val profileDir = File("./profiles")
         if (!profileDir.exists())
@@ -21,12 +23,10 @@ class MenuScene(window: Window) : Scene(window) {
 
         val profiles = Profile.profiles
 
-        val profile: Profile
         if (profiles.isEmpty()) {
             profile = CreateProfileFrame(window.frame).profile
-            profile.save()
         } else {
-
+            profile = ProfileSelectorFrame(window.frame).profile
         }
     }
 
@@ -55,7 +55,7 @@ class CreateProfileFrame(frame: JFrame) : JDialog(frame, "Create Profile", Modal
         nameField.addPropertyChangeListener {
             profileName = (it.source as JTextField).text
         }
-        val nativeLang = JComboBox<String>(arrayOf("") + Languages.CODES.values.toTypedArray())
+        val nativeLang = JComboBox<String>(Languages.CODES.values.toTypedArray())
         nativeLang.addActionListener {
             val selected = (it.source as JComboBox<String>).selectedItem as String
             this.nativeLang = Languages.CODES.filter { it.value == selected }.keys.first()!!
@@ -82,13 +82,41 @@ class CreateProfileFrame(frame: JFrame) : JDialog(frame, "Create Profile", Modal
     }
 
     private lateinit var profileName: String
-    private lateinit var nativeLang: String
+    private var nativeLang: String = "en_US"
     private lateinit var learningLang: String
 
     val profile: Profile
-        get() = Profile(profileName, nativeLang, learningLang, arrayOf(), 0F)
+        get() {
+            val pro = Profile(profileName, nativeLang, learningLang, arrayOf(), 0F)
+            pro.save()
+            return pro
+        }
 }
 
-class ProfileSelectorFrame : JFrame("Profile Selection") {
+class ProfileSelectorFrame(frame: JFrame) : JDialog(frame, "Select Profile", ModalityType.APPLICATION_MODAL) {
 
+    init {
+        this.defaultCloseOperation = WindowConstants.DISPOSE_ON_CLOSE
+        this.setLocationRelativeTo(null)
+        val layout = BoxLayout(this.contentPane, BoxLayout.Y_AXIS)
+        contentPane.setLayout(layout)
+        val profiles = JComboBox<String>(arrayOf("Select Profile") + Profile.profiles.map(Profile::name).toTypedArray())
+        profiles.addActionListener {
+            val selected = (it.source as JComboBox<String>).selectedItem as String
+            this.profile = Profile.profiles.find { it.name == selected }!!
+        }
+        add(profiles)
+        val buttonPanel = JPanel()
+        buttonPanel.layout = BoxLayout(buttonPanel, BoxLayout.X_AXIS)
+        val ok = JButton("Ok").apply { addActionListener { this@ProfileSelectorFrame.dispose() } }
+        buttonPanel.add(ok)
+        val create = JButton("Create Profile").apply { addActionListener { profiles.addItem(CreateProfileFrame(frame).profile.name) } }
+        buttonPanel.add(create)
+        add(buttonPanel)
+        pack()
+        isResizable = false
+        isVisible = true
+    }
+
+    lateinit var profile: Profile
 }
