@@ -6,11 +6,8 @@ import edu.rochester.avarela.komics.graphics.Window
 import edu.rochester.avarela.komics.graphics.impl.LoadScene
 import edu.rochester.avarela.komics.lang.Language
 import edu.rochester.avarela.komics.lang.Languages
-import edu.rochester.avarela.komics.store.Manifest
 import java.awt.Dimension
 import java.awt.Graphics2D
-import java.io.File
-import java.time.LocalDateTime
 import javax.swing.UIManager
 
 fun main(args: Array<String>) {

@@ -1,20 +1,21 @@
 package edu.rochester.avarela.komics.graphics.impl
 
 import edu.rochester.avarela.komics.`class`.Profile
+import edu.rochester.avarela.komics.graphics.Actor
 import edu.rochester.avarela.komics.graphics.Scene
 import edu.rochester.avarela.komics.graphics.Stage
 import edu.rochester.avarela.komics.graphics.Window
 import edu.rochester.avarela.komics.lang.Languages
+import edu.rochester.avarela.komics.profile
 import java.awt.Color
 import java.awt.Component
+import java.awt.Dimension
 import java.io.File
 import javax.swing.*
 import javax.swing.JLabel
 import javax.swing.GroupLayout
 
 class MenuScene(window: Window) : Scene(window) {
-
-    val profile: Profile
 
     init {
         val profileDir = File("./profiles")
@@ -31,7 +32,23 @@ class MenuScene(window: Window) : Scene(window) {
     }
 
     override val background: Color = Color.LIGHT_GRAY
-    override val stages: List<Stage> = listOf()
+    override val stages: List<Stage> = listOf(ToolbarStage(this, 0.toDouble() to 0.toDouble(), Dimension(dimensions.width, (.05 * dimensions.height).toInt())))
+}
+
+class AssignmentStage(scene: Scene, position: Pair<Double, Double>, dimensions: Dimension) : Stage(scene, position, dimensions) {
+    override val actors: List<Actor>
+        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
+}
+
+class ActivityStage(scene: Scene, position: Pair<Double, Double>, dimensions: Dimension) : Stage(scene, position, dimensions) {
+    override val actors: List<Actor>
+        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
+
+}
+
+class ToolbarStage(scene: Scene, position: Pair<Double, Double>, dimensions: Dimension) : Stage(scene, position, dimensions) {
+    override val actors: List<Actor>
+        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
 }
 
 class CreateProfileFrame(frame: JFrame) : JDialog(frame, "Create Profile", ModalityType.APPLICATION_MODAL) {
