@@ -8,7 +8,13 @@ import edu.rochester.avarela.komics.lang.Language
 import edu.rochester.avarela.komics.lang.Languages
 import java.awt.Dimension
 import java.awt.Graphics2D
+import java.io.File
 import javax.swing.UIManager
+import org.reflections.scanners.ResourcesScanner
+import org.reflections.util.ClasspathHelper
+import org.reflections.util.ConfigurationBuilder
+import org.reflections.Reflections
+
 
 fun main(args: Array<String>) {
     UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName())
@@ -18,7 +24,7 @@ fun main(args: Array<String>) {
 }
 
 fun Graphics2D.centerText(string: String, x: Float, y: Float) {
-    drawString(string, x - (fontMetrics.stringWidth(string).toFloat() / 2F), y - (fontMetrics.height.toFloat() / 2F))
+    drawString(string, x - (fontMetrics.stringWidth(string).toFloat() / 2F), y)
 }
 
 const val BASE_URL: String = "https://github.com/austinv11/Komics/raw/master/"
@@ -37,3 +43,13 @@ val Any.json: String
     get() = gson.toJson(this)
 
 inline fun <reified T> String.obj(): T = gson.fromJson<T>(this, T::class.java)
+
+val entries: List<File> by lazy {
+    val reflections = Reflections(ConfigurationBuilder().setUrls(
+            ClasspathHelper.forJavaClassPath()).setScanners(ResourcesScanner()))
+    return@lazy reflections.getResources { true }.filter { it.startsWith("komics") }.map {
+        val file = File.createTempFile(it.replaceAfter('.', ""), "." + it.split('.')[1])
+        file.writeBytes(ClassLoader.getSystemClassLoader().getResourceAsStream(it).readBytes())
+        return@map file
+    }
+}

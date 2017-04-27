@@ -30,7 +30,7 @@ class LoadStage(scene: Scene) : Stage(scene, 0.toDouble() to 0.toDouble()) {
             g.fillRect(0, 0, (progress * width).toInt(), height.toInt())
             g.color = Color.WHITE
             g.drawRect(0, 0, width.toInt(), height.toInt())
-            g.centerText("${localization["gui.loading"]} ${String.format("%.0f", progress * 100)}%", dimensions.width / 2F, 0F)
+            g.centerText("${localization["gui.loading"]} ${String.format("%.0f", progress * 100)}%", dimensions.width / 2F, -5F)
         }
 
         var progress: Float = 0F

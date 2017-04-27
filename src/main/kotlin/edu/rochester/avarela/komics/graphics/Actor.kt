@@ -10,6 +10,8 @@ abstract class Actor(val position: Pair<Double, Double>, val stage: Stage, val d
     public var isHovered: Boolean = false
     public var isSelected: Boolean = false
 
+    val centerCoords: Pair<Double, Double> = (dimensions.width.toDouble() / 2.toDouble()) + position.first to (dimensions.height.toDouble() / 2.toDouble()) + position.second
+
     fun draw(g: Graphics2D) {
         val (dX, dY) = position
         g.translate(dX, dY)

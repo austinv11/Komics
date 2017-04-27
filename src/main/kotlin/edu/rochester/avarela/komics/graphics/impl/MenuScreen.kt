@@ -1,15 +1,19 @@
 package edu.rochester.avarela.komics.graphics.impl
 
 import edu.rochester.avarela.komics.`class`.Profile
+import edu.rochester.avarela.komics.centerText
 import edu.rochester.avarela.komics.graphics.Actor
 import edu.rochester.avarela.komics.graphics.Scene
 import edu.rochester.avarela.komics.graphics.Stage
 import edu.rochester.avarela.komics.graphics.Window
+import edu.rochester.avarela.komics.graphics.prebuilt.ButtonActor
 import edu.rochester.avarela.komics.lang.Languages
+import edu.rochester.avarela.komics.localization
 import edu.rochester.avarela.komics.profile
 import java.awt.Color
 import java.awt.Component
 import java.awt.Dimension
+import java.awt.Graphics2D
 import java.io.File
 import javax.swing.*
 import javax.swing.JLabel
@@ -29,10 +33,13 @@ class MenuScene(window: Window) : Scene(window) {
         } else {
             profile = ProfileSelectorFrame(window.frame).profile
         }
+
+        window.frame.requestFocus()
     }
 
     override val background: Color = Color.LIGHT_GRAY
-    override val stages: List<Stage> = listOf(ToolbarStage(this, 0.toDouble() to 0.toDouble(), Dimension(dimensions.width, (.05 * dimensions.height).toInt())))
+    override val stages: List<Stage> = listOf(ToolbarStage(this, Dimension(dimensions.width, (.05 * dimensions.height).toInt())),
+            AccountNameStage(this, Dimension(80, 30)))
 }
 
 class AssignmentStage(scene: Scene, position: Pair<Double, Double>, dimensions: Dimension) : Stage(scene, position, dimensions) {
@@ -46,9 +53,43 @@ class ActivityStage(scene: Scene, position: Pair<Double, Double>, dimensions: Di
 
 }
 
-class ToolbarStage(scene: Scene, position: Pair<Double, Double>, dimensions: Dimension) : Stage(scene, position, dimensions) {
-    override val actors: List<Actor>
-        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
+class ToolbarStage(scene: Scene, dimensions: Dimension) : Stage(scene, 0.0 to 0.0, dimensions) {
+    override val actors: List<Actor> by lazy {
+        val width = dimensions.getWidth() / BUTTON_COUNT
+
+        val aboutButton = object: ButtonActor(0*width to 0.0, this, Dimension(width.toInt(), dimensions.height), localization["gui.about"], Color.BLUE) {
+            override fun onButtonPress() {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.TODO
+            }
+        }
+
+        val logOutButton = object: ButtonActor(1*width to 0.0, this, Dimension(width.toInt(), dimensions.height), localization["gui.log_out"], Color.BLUE) {
+            override fun onButtonPress() {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.TODO
+            }
+        }
+
+        val quitButton = object: ButtonActor(2*width to 0.0, this, Dimension(width.toInt(), dimensions.height), localization["gui.quit"], Color.BLUE) {
+            override fun onButtonPress() {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.TODO
+            }
+        }
+
+        return@lazy listOf<Actor>(aboutButton, logOutButton, quitButton)
+    }
+
+    companion object {
+        const val BUTTON_COUNT = 3.0
+    }
+}
+
+class AccountNameStage(scene: Scene, dimensions: Dimension) : Stage(scene, 0.0 to scene.dimensions.getHeight() - dimensions.getHeight(), dimensions) {
+    override val actors: List<Actor> = listOf(object: Actor(0.0 to 0.0, this, dimensions) {
+        override fun paint(g: Graphics2D) {
+            g.color = Color.BLACK
+            g.centerText(localization["gui.welcome"].format(profile!!.name), dimensions.getWidth().toFloat() / 2F, dimensions.getHeight().toFloat() / 2F)
+        }
+    })
 }
 
 class CreateProfileFrame(frame: JFrame) : JDialog(frame, "Create Profile", ModalityType.APPLICATION_MODAL) {

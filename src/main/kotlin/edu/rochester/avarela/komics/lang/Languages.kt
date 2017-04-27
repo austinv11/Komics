@@ -1,6 +1,7 @@
 package edu.rochester.avarela.komics.lang
 
-import java.io.File
+import edu.rochester.avarela.komics.entries
+import java.util.regex.Pattern
 
 private val LANGUAGE_MAP = mutableMapOf<String, MutableMap<String, String>>()
 
@@ -9,8 +10,8 @@ object Languages {
     val CODES = mapOf("en_US" to "English", "fr_FR" to "Français")
 
     init {
-        File("./lang").listFiles().forEach {
-            val langCode = it.nameWithoutExtension
+        entries.filter { it.name.endsWith("lang") }.forEach {
+            val langCode = it.nameWithoutExtension.replace(Pattern.compile("\\.+\\d+").toRegex(), "")
             LANGUAGE_MAP[langCode] = mutableMapOf()
             val map = LANGUAGE_MAP[langCode]
             it.readLines().forEach {
@@ -38,7 +39,7 @@ data class Language(val lang: String) : Map<String, String> {
 
     override fun containsValue(value: String): Boolean = LANGUAGE_MAP[lang]?.containsValue(value) ?: false
 
-    override fun get(key: String): String? = LANGUAGE_MAP[lang]?.get(key) ?: key
+    override fun get(key: String): String = LANGUAGE_MAP[lang]?.get(key) ?: key
 
     override fun isEmpty(): Boolean = size == 0
 
