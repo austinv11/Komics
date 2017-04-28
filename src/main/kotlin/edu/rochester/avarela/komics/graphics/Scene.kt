@@ -17,6 +17,18 @@ abstract class Scene(val window: Window, val dimensions: Dimension = window.dime
         stages.forEach { it.onUpdate(dT) }
     }
 
+    open fun onKeyInput(char: Char) {
+
+    }
+
+    open fun onKeyPressed(char: Char) {
+
+    }
+
+    open fun onKeyReleased(char: Char) {
+
+    }
+
     abstract val background: Color
 
     abstract val stages: List<Stage>

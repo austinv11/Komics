@@ -114,14 +114,17 @@ class Window(val name: String, val dimensions: Dimension, val initializer: Windo
 
         override fun keyTyped(e: KeyEvent) {
             resolveKeyListeningActors().forEach { it.onKeyInput(e.char) }
+            scene?.onKeyInput(e.char)
         }
 
         override fun keyPressed(e: KeyEvent) {
             resolveKeyListeningActors().forEach { it.onKeyPressed(e.char) }
+            scene?.onKeyPressed(e.char)
         }
 
         override fun keyReleased(e: KeyEvent) {
             resolveKeyListeningActors().forEach { it.onKeyReleased(e.char) }
+            scene?.onKeyReleased(e.char)
         }
 
         override fun mouseReleased(e: MouseEvent) {

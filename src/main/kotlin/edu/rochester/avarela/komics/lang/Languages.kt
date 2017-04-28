@@ -2,13 +2,12 @@ package edu.rochester.avarela.komics.lang
 
 import edu.rochester.avarela.komics.resources
 import edu.rochester.avarela.komics.stripTemp
-import java.util.regex.Pattern
 
 private val LANGUAGE_MAP = mutableMapOf<String, MutableMap<String, String>>()
 
 object Languages {
 
-    val CODES = mapOf("en_US" to "English", "fr_FR" to "Français")
+    val CODES = mapOf("en_US" to "English", "fr_FR" to "Français") //TODO remember to update
 
     init {
         resources.filter { it.name.endsWith("lang") }.forEach {
@@ -40,7 +39,7 @@ data class Language(val lang: String) : Map<String, String> {
 
     override fun containsValue(value: String): Boolean = LANGUAGE_MAP[lang]?.containsValue(value) ?: false
 
-    override fun get(key: String): String = LANGUAGE_MAP[lang]?.get(key) ?: key
+    override fun get(key: String): String = LANGUAGE_MAP[lang]?.get(key) ?: key.apply { println("WARNING: Missing translation for $this") }
 
     override fun isEmpty(): Boolean = size == 0
 

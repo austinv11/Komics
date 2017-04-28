@@ -1,2 +1,7 @@
 # General menu stuff
 gui.loading=Loading
+gui.about=About
+gui.log_out=Log Out
+gui.quit=Quit
+gui.welcome=Hello %s!
+gui.about.text=Komics is a proof-of-concept implementation of using comics to teach foreign languages by Austin Varela.\n\nCredits:\n* Logo image created using http://www4.flamingtext.com/.\n* Reflections is licensed under the compatible "Do What The F*ck You Want To Public License".\n* GSON is licensed under the compatible "Apache 2.0" license.
