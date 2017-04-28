@@ -7,13 +7,11 @@ import edu.rochester.avarela.komics.graphics.Scene
 import edu.rochester.avarela.komics.graphics.Stage
 import edu.rochester.avarela.komics.graphics.Window
 import edu.rochester.avarela.komics.graphics.prebuilt.ButtonActor
+import edu.rochester.avarela.komics.graphics.prebuilt.ImageBoundActor
 import edu.rochester.avarela.komics.lang.Languages
 import edu.rochester.avarela.komics.localization
 import edu.rochester.avarela.komics.profile
-import java.awt.Color
-import java.awt.Component
-import java.awt.Dimension
-import java.awt.Graphics2D
+import java.awt.*
 import java.io.File
 import javax.swing.*
 import javax.swing.JLabel
@@ -39,7 +37,7 @@ class MenuScene(window: Window) : Scene(window) {
 
     override val background: Color = Color.LIGHT_GRAY
     override val stages: List<Stage> = listOf(ToolbarStage(this, Dimension(dimensions.width, (.05 * dimensions.height).toInt())),
-            AccountNameStage(this, Dimension(80, 30)))
+            AccountNameStage(this, Dimension(80, 30)), LogoStage(this))
 }
 
 class AssignmentStage(scene: Scene, position: Pair<Double, Double>, dimensions: Dimension) : Stage(scene, position, dimensions) {
@@ -88,6 +86,15 @@ class AccountNameStage(scene: Scene, dimensions: Dimension) : Stage(scene, 0.0 t
         override fun paint(g: Graphics2D) {
             g.color = Color.BLACK
             g.centerText(localization["gui.welcome"].format(profile!!.name), dimensions.getWidth().toFloat() / 2F, dimensions.getHeight().toFloat() / 2F)
+        }
+    })
+}
+
+class LogoStage(scene: Scene) : Stage(scene, -6.0 to scene.dimensions.getHeight() / 4, Dimension(580/2, 225/2)) {
+    override val actors: List<Actor> = listOf(object: ImageBoundActor(0.0 to 0.0, this, dimensions, "komics.png") {
+        override fun paint(g: Graphics2D) {
+            g.rotate(-Math.PI / 6.0)
+            super.paint(g)
         }
     })
 }

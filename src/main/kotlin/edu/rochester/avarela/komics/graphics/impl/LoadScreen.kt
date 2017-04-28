@@ -19,7 +19,6 @@ class LoadScene(w: Window) : Scene(w) {
 class LoadStage(scene: Scene) : Stage(scene, 0.toDouble() to 0.toDouble()) {
     override val actors: List<Actor> = listOf(ProgressBar())
 
-
     inner class ProgressBar(val width: Double = dimensions.width.toDouble() - 20.toDouble(), val height: Float = 20F)
         : Actor((dimensions.width.toDouble() - width) / 2.toDouble() to (dimensions.height.toDouble() - height.toDouble()) / 2.toDouble(),
             this, dimensions) {
