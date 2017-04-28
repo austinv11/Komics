@@ -33,7 +33,7 @@ fun Graphics2D.centerText(string: String, x: Float, y: Float) {
 
 const val IS_DEBUG_MODE: Boolean = true //TODO set false!!!
 
-var profile: Profile? = null
+@Volatile var profile: Profile? = null
 
 val localization: Language
     get() = Languages[profile?.localLang ?: "en_US"]

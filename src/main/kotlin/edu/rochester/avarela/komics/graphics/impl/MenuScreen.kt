@@ -147,7 +147,7 @@ class CreateProfileFrame(frame: JFrame) : JDialog(frame, "Create Profile", Modal
         nameField.addPropertyChangeListener {
             profileName = (it.source as JTextField).text
         }
-        val nativeLang = JComboBox<String>(Languages.CODES.values.toTypedArray())
+        val nativeLang = JComboBox<String>(arrayOf("") + Languages.CODES.values.toTypedArray())
         nativeLang.addActionListener {
             val selected = (it.source as JComboBox<String>).selectedItem as String
             this.nativeLang = Languages.CODES.filter { it.value == selected }.keys.first()!!
@@ -174,7 +174,7 @@ class CreateProfileFrame(frame: JFrame) : JDialog(frame, "Create Profile", Modal
     }
 
     private lateinit var profileName: String
-    private var nativeLang: String = "en_US"
+    private lateinit var nativeLang: String
     private lateinit var learningLang: String
 
     val profile: Profile
