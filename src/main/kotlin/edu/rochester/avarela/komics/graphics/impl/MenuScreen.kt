@@ -1,6 +1,7 @@
 package edu.rochester.avarela.komics.graphics.impl
 
 import edu.rochester.avarela.komics.`class`.Profile
+import edu.rochester.avarela.komics.activities.*
 import edu.rochester.avarela.komics.centerText
 import edu.rochester.avarela.komics.graphics.Actor
 import edu.rochester.avarela.komics.graphics.Scene
@@ -39,17 +40,41 @@ class MenuScene(window: Window) : Scene(window) {
 
     override val background: Color = Color.LIGHT_GRAY
     override val stages: List<Stage> = listOf(ToolbarStage(this, Dimension(dimensions.width, (.05 * dimensions.height).toInt())),
-            AccountNameStage(this, Dimension(160, 30)), LogoStage(this))
+            AccountNameStage(this, Dimension(160, 30)),
+            ActivityStage(this, .1 * dimensions.height to .1 * dimensions.height, Dimension((.9 * dimensions.width).toInt(), (.8 * dimensions.height).toInt())),
+            LogoStage(this))
 
-    class AssignmentStage(scene: Scene, position: Pair<Double, Double>, dimensions: Dimension) : Stage(scene, position, dimensions) {
+    class AssignmentStage(scene: Scene, position: Pair<Double, Double>, dimensions: Dimension) : Stage(scene, position, dimensions) { //TODO
         override val actors: List<Actor>
             get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
     }
 
     class ActivityStage(scene: Scene, position: Pair<Double, Double>, dimensions: Dimension) : Stage(scene, position, dimensions) {
-        override val actors: List<Actor>
-            get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
+        override val actors: List<Actor> by lazy {
+            var buttons = listOf<ActivityButton>()
 
+            val buttonDimensions = Dimension((dimensions.width - (2 * PADDING)) / 3, (dimensions.height - PADDING) / 2)
+
+            buttons += ActivityButton(0.0 to 0.0, buttonDimensions, localization["gui.activity.title"], MakeATitleActivity(window))
+            buttons += ActivityButton((buttonDimensions.getWidth() + PADDING) to 0.0, buttonDimensions, localization["gui.activity.match"], MatchCaptionsActivity(window))
+            buttons += ActivityButton((buttonDimensions.getWidth() + PADDING) * 2 to 0.0, buttonDimensions, localization["gui.activity.reorder"], ReorderActivity(window))
+
+            buttons += ActivityButton(0.0 to (buttonDimensions.getHeight() + PADDING), buttonDimensions, localization["gui.activity.experiment"], ExperimentActivity(window))
+            buttons += ActivityButton((buttonDimensions.getWidth() + PADDING) to (buttonDimensions.getHeight() + PADDING), buttonDimensions, localization["gui.activity.fill"], FillThePanelActivity(window))
+            buttons += ActivityButton((buttonDimensions.getWidth() + PADDING) * 2 to (buttonDimensions.getHeight() + PADDING), buttonDimensions, localization["gui.activity.custom"], CustomComicsActivity(window))
+
+            return@lazy buttons
+        }
+
+        inner class ActivityButton(position: Pair<Double, Double>, dimensions: Dimension, text: String, val activity: Scene) : ButtonActor(position, this, dimensions, text, Color.PINK) {
+            override fun onButtonPress() {
+                window.scene = activity
+            }
+        }
+
+        companion object {
+            const val PADDING = 25
+        }
     }
 
     class ToolbarStage(scene: Scene, dimensions: Dimension) : Stage(scene, 0.0 to 0.0, dimensions) {

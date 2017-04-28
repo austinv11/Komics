@@ -1,6 +1,5 @@
 package edu.rochester.avarela.komics.graphics.prebuilt
 
-import edu.rochester.avarela.komics.centerText
 import edu.rochester.avarela.komics.graphics.Actor
 import edu.rochester.avarela.komics.graphics.Scene
 import edu.rochester.avarela.komics.graphics.Stage

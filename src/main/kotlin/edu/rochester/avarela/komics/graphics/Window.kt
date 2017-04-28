@@ -87,8 +87,8 @@ class Window(val name: String, val dimensions: Dimension, val initializer: Windo
 
         fun resolveMouseListeningActors(e: MouseEvent): List<Actor> = scene?.stages?.flatMap { it.actors }?.filter {
             val transformed = it.transformAbsoluteCoords(e.x to e.y)
-            println("1: $transformed")
-            println("2: ${it.dimensions.width to it.dimensions.height}")
+//            println("1: $transformed")
+//            println("2: ${it.dimensions.width to it.dimensions.height}")
             return@filter transformed.first >= 0 && transformed.second >= 0 && transformed.first < it.dimensions.width && transformed.second < it.dimensions.height
         }?.toList() ?: listOf()
 
