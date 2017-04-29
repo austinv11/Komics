@@ -1,4 +1,5 @@
 # General gui stuff
+gui.lang=English
 gui.loading=Loading
 gui.about=About
 gui.log_out=Log Out

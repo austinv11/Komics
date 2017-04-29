@@ -7,7 +7,7 @@ private val LANGUAGE_MAP = mutableMapOf<String, MutableMap<String, String>>()
 
 object Languages {
 
-    val CODES = mapOf("en_US" to "English", "fr_FR" to "Français") //TODO remember to update
+    val CODES = mutableMapOf<String, String>()
 
     init {
         resources.filter { it.name.endsWith("lang") }.forEach {
@@ -20,9 +20,12 @@ object Languages {
                     map!![split[0]] = split[1]
                 }
             }
+            val langName = map!!["gui.lang"]
+            if (langName != null)
+                CODES[langCode] = langName
         }
 
-        languages.forEach { if (!CODES.containsKey(it)) println("WARNING: Missing language name for $it!") }
+        languages.forEach { if (!CODES.containsKey(it)) { println("WARNING: Missing language name for $it!"); CODES[it] = it} }
     }
 
     operator fun get(key: String): Language = Language(key)
