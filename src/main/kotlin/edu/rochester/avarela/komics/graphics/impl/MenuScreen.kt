@@ -59,9 +59,8 @@ class MenuScene(window: Window) : Scene(window) {
             buttons += ActivityButton((buttonDimensions.getWidth() + PADDING) to 0.0, buttonDimensions, localization["gui.activity.match"], MatchCaptionsActivity(window))
             buttons += ActivityButton((buttonDimensions.getWidth() + PADDING) * 2 to 0.0, buttonDimensions, localization["gui.activity.reorder"], ReorderActivity(window))
 
-            buttons += ActivityButton(0.0 to (buttonDimensions.getHeight() + PADDING), buttonDimensions, localization["gui.activity.experiment"], ExperimentActivity(window))
-            buttons += ActivityButton((buttonDimensions.getWidth() + PADDING) to (buttonDimensions.getHeight() + PADDING), buttonDimensions, localization["gui.activity.fill"], FillThePanelActivity(window))
-            buttons += ActivityButton((buttonDimensions.getWidth() + PADDING) * 2 to (buttonDimensions.getHeight() + PADDING), buttonDimensions, localization["gui.activity.custom"], CustomComicsActivity(window))
+            buttons += ActivityButton(0.0 to (buttonDimensions.getHeight() + PADDING), buttonDimensions, localization["gui.activity.fill"], FillThePanelActivity(window))
+            buttons += ActivityButton((buttonDimensions.getWidth() + PADDING) to (buttonDimensions.getHeight() + PADDING), buttonDimensions, localization["gui.activity.custom"], CustomComicsActivity(window))
 
             return@lazy buttons
         }

@@ -115,7 +115,7 @@ class PaintingStage(scene: Scene, position: Pair<Double, Double>, dimensions: Di
             if (currAction == Actions.PAINT) {
                 g.drawOval(lastX - PIXEL_SIZE / 2, lastY - PIXEL_SIZE / 2, PIXEL_SIZE, PIXEL_SIZE)
             } else if (currAction == Actions.ERASE) {
-                g.drawOval(lastX - (PIXEL_SIZE+1) / 2, lastY - (PIXEL_SIZE+1) / 2, PIXEL_SIZE+1, PIXEL_SIZE+1)
+                g.drawRect(lastX - (PIXEL_SIZE+1) / 2, lastY - (PIXEL_SIZE+1) / 2, PIXEL_SIZE+1, PIXEL_SIZE+1)
             }
         }
 

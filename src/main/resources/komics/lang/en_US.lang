@@ -9,7 +9,6 @@ gui.about.text=Komics is a proof-of-concept implementation of using comics to te
 gui.activity.title=Make a Title
 gui.activity.match=Match Captions
 gui.activity.reorder=Reorder Panels
-gui.activity.experiment=Comprehension Experiment
 gui.activity.fill=Fill the Panels
 gui.activity.custom=Create Custom Comics
 gui.colors=Choose a Color
