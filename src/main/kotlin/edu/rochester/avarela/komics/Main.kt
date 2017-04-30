@@ -57,5 +57,5 @@ val resources: List<File> by lazy {
     }
 }
 
-val tempPatter = Pattern.compile("\\.+\\d+").toRegex()
-fun String.stripTemp(): String = this.replaceFirst(tempPatter, "")
+val tempPattern = Pattern.compile("\\.+\\d+").toRegex()
+fun String.stripTemp(): String = this.replaceFirst(tempPattern, "")
