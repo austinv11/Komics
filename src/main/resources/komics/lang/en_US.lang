@@ -21,3 +21,7 @@ mat.panel2.sound=THUMP!
 mat.panel2=What was that?
 mat.panel3.bob=Boo!
 mat.panel3=You're an idiot.
+
+# Fill the Panels
+ftp=Road Trip
+ftp.panel1=So, where are we going?
