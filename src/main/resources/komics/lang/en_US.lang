@@ -12,3 +12,5 @@ gui.activity.reorder=Reorder Panels
 gui.activity.experiment=Comprehension Experiment
 gui.activity.fill=Fill the Panels
 gui.activity.custom=Create Custom Comics
+gui.colors=Choose a Color
+gui.text=Enter Text

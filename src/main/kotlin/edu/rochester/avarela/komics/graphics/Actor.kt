@@ -44,6 +44,10 @@ abstract class Actor(val position: Pair<Double, Double>, val stage: Stage, val d
         isSelected = false
     }
 
+    open fun onScroll(scrollAmount: Int, coords: Pair<Int, Int>) {
+
+    }
+
     open fun onKeyInput(char: Char) {
 
     }

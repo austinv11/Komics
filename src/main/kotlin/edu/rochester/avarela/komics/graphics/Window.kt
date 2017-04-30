@@ -15,6 +15,11 @@ import java.awt.event.KeyEvent.*
 class Window(val name: String, val dimensions: Dimension, val initializer: Window.() -> Unit) : ActionListener {
 
     var scene: Scene? = null
+        set(value) {
+            previousScene = field
+            field = value
+        }
+    var previousScene: Scene? = null
     private var lastTime = System.currentTimeMillis()
 
     override fun actionPerformed(e: ActionEvent) {
@@ -41,12 +46,13 @@ class Window(val name: String, val dimensions: Dimension, val initializer: Windo
         frame.contentPane.addMouseListener(component)
         frame.contentPane.addKeyListener(component)
         frame.contentPane.addMouseMotionListener(component)
+        frame.contentPane.addMouseWheelListener(component)
         frame.isFocusable = true
         frame.requestFocus()
         initializer(this)
     }
 
-    inner class WindowComponent : JComponent(), MouseListener, MouseMotionListener, KeyListener  {
+    inner class WindowComponent : JComponent(), MouseListener, MouseMotionListener, KeyListener, MouseWheelListener {
 
         override fun paintComponent(g: Graphics) {
             super.paintComponent(g)
@@ -74,6 +80,7 @@ class Window(val name: String, val dimensions: Dimension, val initializer: Windo
                         VK_BACK_SPACE -> SpecialChars.BACKSPACE
                         VK_CONTROL -> SpecialChars.CTRL
                         VK_ALT -> SpecialChars.ALT
+                        VK_ESCAPE -> SpecialChars.ESC
                         else -> '\u0000' //NULL char because we don't care for this special key
                     }
                 } else {
@@ -149,7 +156,11 @@ class Window(val name: String, val dimensions: Dimension, val initializer: Windo
         }
 
         override fun mouseDragged(e: MouseEvent) {
-            //TODO maybe handle dragging?
+            mouseMoved(e)
+        }
+
+        override fun mouseWheelMoved(e: MouseWheelEvent) {
+            resolveMouseListeningActors(e).forEach { it.onScroll(e.wheelRotation, it.transformAbsoluteCoords(e.x to e.y)) }
         }
     }
 }

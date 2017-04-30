@@ -28,7 +28,6 @@ abstract class ButtonActor(position: Pair<Double, Double>,
     }
 
     override fun onClick(mouseNumber: Int, coords: Pair<Int, Int>) {
-        super.onClick(mouseNumber, coords)
         onButtonPress()
     }
 

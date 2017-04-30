@@ -11,8 +11,12 @@ abstract class Stage(val scene: Scene, val position: Pair<Double, Double>, val d
         val (dX, dY) = position
         g.translate(dX, dY)
 //        g.clipRect(0, 0, dimensions.width, dimensions.height)
-
+        paint(g.create() as Graphics2D)
         actors.forEach { it.draw(g.create() as Graphics2D) }
+    }
+
+    open fun paint(g: Graphics2D) {
+
     }
 
     fun onUpdate(dT: Long) {
