@@ -59,3 +59,13 @@ val resources: List<File> by lazy {
 
 val tempPattern = Pattern.compile("\\.+\\d+").toRegex()
 fun String.stripTemp(): String = this.replaceFirst(tempPattern, "")
+
+fun Dimension.scale(scaleFactor: Float): Dimension = Dimension((this.getWidth() * scaleFactor).toInt(), (this.getHeight() * scaleFactor).toInt())
+
+val String.removeLast: String
+    get() {
+        if (this.isNullOrEmpty())
+            return this
+
+        return this.substring(0, this.length-1)
+    }

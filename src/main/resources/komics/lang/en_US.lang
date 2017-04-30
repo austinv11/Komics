@@ -5,7 +5,7 @@ gui.about=About
 gui.log_out=Log Out
 gui.quit=Quit
 gui.welcome=Hello %s!
-gui.about.text=Komics is a proof-of-concept implementation of using comics to teach foreign languages by Austin Varela.\n\nCredits:\n* Logo image created using http://www4.flamingtext.com/.\n* Reflections is licensed under the compatible "Do What The F*ck You Want To Public License".\n* GSON is licensed under the compatible "Apache 2.0" license.
+gui.about.text=Komics is a proof-of-concept implementation of using comics to teach foreign languages by Austin Varela.\n\nCredits:\n* Logo image created using http://www4.flamingtext.com/.\n* Reflections is licensed under the compatible "Do What The F*ck You Want To Public License".\n* GSON is licensed under the compatible "Apache 2.0" license.\n* Comics are produced with tools provided by Pixton https://www.pixton.com/.
 gui.activity.title=Make a Title
 gui.activity.match=Match Captions
 gui.activity.reorder=Reorder Panels
@@ -13,3 +13,11 @@ gui.activity.fill=Fill the Panels
 gui.activity.custom=Create Custom Comics
 gui.colors=Choose a Color
 gui.text=Enter Text
+
+# Make a Title
+mat=Enter a Title
+mat.panel1=Where did Bob go?
+mat.panel2.sound=THUMP!
+mat.panel2=What was that?
+mat.panel3.bob=Boo!
+mat.panel3=You're an idiot.
