@@ -1,0 +1,40 @@
+# General gui stuff
+gui.lang=Deutsch
+gui.loading=Lade
+gui.about=Über
+gui.log_out=Ausloggen
+gui.quit=Beenden
+gui.welcome=Hallo %s!
+gui.about.text=Komics is a proof-of-concept implementation of using comics to teach foreign languages by Austin Varela.\n\nCredits:\n* Logo image created using http://www4.flamingtext.com/.\n* Reflections is licensed under the compatible "Do What The F*ck You Want To Public License".\n* GSON is licensed under the compatible "Apache 2.0" license.\n* Comics are produced with tools provided by Pixton https://www.pixton.com/.
+gui.activity.title=Titel erstellen
+gui.activity.match=Wähle die richtigen Untertitel
+gui.activity.fill=Füll die Einzelbilder aus
+gui.activity.custom=Erstelle einen eigenen Comic
+gui.colors=Wähle eine Farbe
+gui.text=Gib einen Text ein
+gui.results=Ergebnisse
+gui.results.message=Du hast %d von %d Antworten richtig!
+
+# Make a Title
+mat=Füge einen Titel hinzu
+mat.panel1=Wo ist Bob hingegangen?
+mat.panel2.sound=BA-DUMM!
+mat.panel2=Was war das?
+mat.panel3.bob=Boo!
+mat.panel3=Du bist ein Idiot.
+
+# Fill the Panels
+ftp=Autoreise
+ftp.panel1=So, wo gehen wir hin?
+
+# Match Captions
+mc=Museumsausflug
+mc.panel1.1=Das Museum sieht interessant aus!
+mc.panel1.2=Ich will mir eine Pizza holen.
+mc.panel1.3=Diese Band ist großartig!
+mc.panel2.1=Vielen Dank für das Geld!
+mc.panel2.2=Ein Ticket bitte.
+mc.panel2.3=Was halte ich hier?
+mc.panel3.1=Wow, dieser Dinosaurier sieht erstaunlich aus!
+mc.panel3.2=Ist das eine Dohle?
+mc.panel3.3=Das sieht lecker aus.
