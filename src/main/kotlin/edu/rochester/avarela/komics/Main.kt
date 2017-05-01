@@ -31,7 +31,7 @@ fun Graphics2D.centerText(string: String, x: Float, y: Float) {
     drawString(string, x - (fontMetrics.stringWidth(string).toFloat() / 2F), y)
 }
 
-const val IS_DEBUG_MODE: Boolean = true //TODO set false!!!
+const val IS_DEBUG_MODE: Boolean = false //TODO set false!!!
 
 @Volatile var profile: Profile? = null
 

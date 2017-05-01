@@ -42,7 +42,7 @@ class Window(val name: String, val dimensions: Dimension, val initializer: Windo
         frame.isVisible = true
         frame.setLocationRelativeTo(null)
         frame.contentPane.add(component)
-        Timer(1, this).start()
+        Timer(10, this).start()
         frame.contentPane.addMouseListener(component)
         frame.contentPane.addKeyListener(component)
         frame.contentPane.addMouseMotionListener(component)
