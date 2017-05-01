@@ -17,7 +17,7 @@ class MakeATitleActivity(window: Window) : Scene(window, window.dimensions) {
         with(stages[0] as ComicStage) {
             text += TextActor(110.0 to 70.0, this, this.dimensions, listOf(target["mat.panel1"]))
             text += TextActor(281.0 to 52.0, this, this.dimensions, listOf(target["mat.panel2.sound"]))
-            text += TextActor(375.0 to 130.0, this, this.dimensions, listOf(target["mat.panel2"]))
+            text += TextActor(360.0 to 130.0, this, this.dimensions, listOf(target["mat.panel2"]))
             text += TextActor(595.0 to 48.0, this, this.dimensions, listOf(target["mat.panel3.bob"]))
             text += TextActor(550.0 to 275.0, this, this.dimensions, listOf(target["mat.panel3"]))
         }

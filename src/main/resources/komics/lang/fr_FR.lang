@@ -1,2 +1,40 @@
+# General gui stuff
 gui.lang=Français
 gui.loading=Charger
+gui.about=Information
+gui.log_out=Déconnecter
+gui.quit=Arrêter
+gui.welcome=Salut %s!
+gui.about.text=Espace Réservé
+gui.activity.title=Faire un Titre
+gui.activity.match=Sélectionner les Phrases
+gui.activity.fill=Remplir les Panneaux
+gui.activity.custom=Faire des Bandes Dessinées
+gui.colors=Choisissez une Couleur
+gui.text=Fournir du Texte
+gui.results=Résultats
+gui.results.message=Vous avez %d correct sur %d!
+
+# Make a Title
+mat=Entrez un Titre
+mat.panel1=Où Bob est-il allé?
+mat.panel2.sound=BOUM!
+mat.panel2=Qu'est-ce que C'était?
+mat.panel3.bob=Huer!
+mat.panel3=Tu es un idiot.
+
+# Fill the Panels
+ftp=Voyage
+ftp.panel1=Alors, où allons-nous?
+
+# Match Captions
+mc=Voyage au Musée
+mc.panel1.1=Le musée a l'air amusant!
+mc.panel1.2=Je veux prendre de la pizza.
+mc.panel1.3=Ce groupe est incroyable!
+mc.panel2.1=Merci pour l'argent!
+mc.panel2.2=Un ticket s'il vous plaît.
+mc.panel2.3=Qu'est-ce que je tiens?
+mc.panel3.1=Wow, ce dinosaure est incroyable!
+mc.panel3.2=Est-ce un jackdaw?
+mc.panel3.3=Ce semble savoureux
