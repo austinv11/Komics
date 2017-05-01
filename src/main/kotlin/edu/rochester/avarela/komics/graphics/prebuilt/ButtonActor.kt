@@ -12,9 +12,11 @@ abstract class ButtonActor(position: Pair<Double, Double>,
                            stage: Stage,
                            dimensions: Dimension,
                            var text: String,
-                           var defaultColor: Color,
-                           var highlightColor: Color = Color.BLACK,
-                           var hoveredColor: Color = defaultColor.darker()) : Actor(position, stage, dimensions) {
+                           @Volatile var defaultColor: Color,
+                           var highlightColor: Color = Color.BLACK) : Actor(position, stage, dimensions) {
+
+    val hoveredColor: Color
+        get() = defaultColor.darker()
 
     override fun paint(g: Graphics2D) {
         g.color = if (isHovered) hoveredColor else defaultColor

@@ -10,8 +10,7 @@ open class ToggleableButtonActor(position: Pair<Double, Double>,
                                  text: String,
                                  defaultColor: Color,
                                  var toggleListener: ToggleableButtonActor.() -> Unit,
-                                 highlightColor: Color = Color.BLACK,
-                                 hoveredColor: Color = defaultColor.darker()) : ButtonActor(position, stage, dimensions, text, defaultColor, highlightColor, hoveredColor) {
+                                 highlightColor: Color = Color.BLACK) : ButtonActor(position, stage, dimensions, text, defaultColor, highlightColor) {
 
     var isToggled: Boolean = false
 

@@ -16,7 +16,7 @@ open class ImageBoundActor(position: Pair<Double, Double>,
                            file: String) : Actor(position, stage, dimensions) {
 
     val image by lazy {
-        ImageIcon(ImageIO.read(resources.find { it.name.stripTemp() == file }).getScaledInstance(dimensions.width, dimensions.height, Image.SCALE_SMOOTH))
+        ImageIcon(ImageIO.read(resources.find { it.name.stripTemp() == file }).getScaledInstance(dimensions.width, dimensions.height, Image.SCALE_AREA_AVERAGING))
     }
 
     override fun paint(g: Graphics2D) {

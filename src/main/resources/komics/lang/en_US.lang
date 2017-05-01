@@ -13,6 +13,8 @@ gui.activity.fill=Fill the Panels
 gui.activity.custom=Create Custom Comics
 gui.colors=Choose a Color
 gui.text=Enter Text
+gui.results=Results
+gui.results.message=You got %d correct out of %d!
 
 # Make a Title
 mat=Enter a Title
@@ -25,3 +27,15 @@ mat.panel3=You're an idiot.
 # Fill the Panels
 ftp=Road Trip
 ftp.panel1=So, where are we going?
+
+# Match Captions
+mc=Trip to the Museum
+mc.panel1.1=The museum looks fun!
+mc.panel1.2=I want to grab some pizza.
+mc.panel1.3=This band is amazing!
+mc.panel2.1=Thanks for the money!
+mc.panel2.2=One ticket please.
+mc.panel2.3=What am I holding?
+mc.panel3.1=Wow, this dinosaur is amazing!
+mc.panel3.2=Is that a jackdaw?
+mc.panel3.3=That looks tasty.
