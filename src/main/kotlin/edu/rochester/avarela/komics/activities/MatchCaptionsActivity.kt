@@ -25,7 +25,7 @@ class MatchCaptionsActivity(window: Window) : Scene(window, window.dimensions) {
 
     override val background: Color = Color.WHITE
     override val stages: List<Stage> = listOf(ComicStage(this, dimensions.width * .1 to dimensions.height * .1, Dimension((dimensions.width * .8F).toInt(), (dimensions.height * .5F).toInt()), "museum.png"),
-            TextStage(this, dimensions.width / 2.0 to 10.0, dimensions, listOf(target["mc"]), true),
+            TextStage(this, dimensions.width / 2.0 to 10.0, dimensions, listOf(localization["mc"]), true),
             MultipleChoiceStage(this, dimensions.width * .1 to dimensions.height * .7, listOf(target["mc.panel1.1"] to true, target["mc.panel1.2"] to false, target["mc.panel1.3"] to false)),
             MultipleChoiceStage(this, dimensions.width * .1 + (BUTTON_WIDTH) + BUTTON_SPACING to dimensions.height * .7, listOf(target["mc.panel2.1"] to false, target["mc.panel2.2"] to true, target["mc.panel2.3"] to false)),
             MultipleChoiceStage(this, dimensions.width * .1 + (BUTTON_WIDTH * 2) + (BUTTON_SPACING*2) to dimensions.height * .7, listOf(target["mc.panel3.1"] to true, target["mc.panel3.2"] to false, target["mc.panel3.3"] to false)))

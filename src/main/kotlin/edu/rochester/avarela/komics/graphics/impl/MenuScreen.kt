@@ -53,11 +53,10 @@ class MenuScene(window: Window) : Scene(window) {
         override val actors: List<Actor> by lazy {
             var buttons = listOf<ActivityButton>()
 
-            val buttonDimensions = Dimension((dimensions.width - (2 * PADDING)) / 3, (dimensions.height - PADDING) / 2)
+            val buttonDimensions = Dimension((dimensions.width - (2 * PADDING)) / 2, (dimensions.height - PADDING) / 2)
 
             buttons += ActivityButton(0.0 to 0.0, buttonDimensions, localization["gui.activity.title"], MakeATitleActivity(window))
             buttons += ActivityButton((buttonDimensions.getWidth() + PADDING) to 0.0, buttonDimensions, localization["gui.activity.match"], MatchCaptionsActivity(window))
-            buttons += ActivityButton((buttonDimensions.getWidth() + PADDING) * 2 to 0.0, buttonDimensions, localization["gui.activity.reorder"], ReorderActivity(window))
 
             buttons += ActivityButton(0.0 to (buttonDimensions.getHeight() + PADDING), buttonDimensions, localization["gui.activity.fill"], FillThePanelActivity(window))
             buttons += ActivityButton((buttonDimensions.getWidth() + PADDING) to (buttonDimensions.getHeight() + PADDING), buttonDimensions, localization["gui.activity.custom"], CustomComicsActivity(window))

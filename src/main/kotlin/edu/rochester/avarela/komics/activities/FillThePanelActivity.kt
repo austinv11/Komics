@@ -8,6 +8,7 @@ import edu.rochester.avarela.komics.graphics.prebuilt.ComicStage
 import edu.rochester.avarela.komics.graphics.prebuilt.PaintingStage
 import edu.rochester.avarela.komics.graphics.prebuilt.TextActor
 import edu.rochester.avarela.komics.graphics.prebuilt.TextStage
+import edu.rochester.avarela.komics.localization
 import edu.rochester.avarela.komics.scale
 import edu.rochester.avarela.komics.target
 import java.awt.Color
@@ -15,7 +16,7 @@ import java.awt.Color
 class FillThePanelActivity(window: Window) : Scene(window, window.dimensions) {
     override val background: Color = Color.WHITE
     override val stages: List<Stage> = listOf(ComicStage(this, dimensions.width * .1 to dimensions.height * .1, dimensions.scale(.8F), "fill.png"),
-            TextStage(this, dimensions.width / 2.0 to 10.0, dimensions, listOf(target["ftp"]), true),
+            TextStage(this, dimensions.width / 2.0 to 10.0, dimensions, listOf(localization["ftp"]), true),
             PaintingStage(this, 0.0 to 0.0, dimensions))
     init {
         with(stages[0] as ComicStage) {
